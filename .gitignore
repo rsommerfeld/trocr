@@ -1,0 +1,10 @@
+train*/
+val*/
+gt
+
+*.jpg
+*.png
+
+*model*/
+
+**/__pycache__
