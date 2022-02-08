@@ -1,10 +1,5 @@
-train*/
-val*/
-gt
-
-*.jpg
-*.png
-
 *model*/
+.DS_STORE
+
 
 **/__pycache__
