@@ -1,0 +1,15 @@
+# run: conda env create -n <name> --file environment.yml
+channels:
+  - defaults
+  - pytorch
+dependencies:
+  - python=3.9
+  - pytorch::pytorch=1.10.2
+  - pytorch::torchvision=0.11.3
+  - pytorch::torchaudio=0.10.2
+  - pip
+  - pip:
+      - pillow==9.0.1
+      - transformers==4.16.2
+      - sentencepiece==0.1.96
+      - typer==0.4.0

@@ -52,7 +52,13 @@ conda activate trocr
 ```
 
 This should install all necessary libraries.
-It is highly recommended to use a CUDA GPU, but at least prediction also works on a cpu.
+
+
+### Training without GPU:
+
+It is highly recommended to use a CUDA GPU, but everything also works on cpu. For that, install from file `environment-cpu.yml` instead.
+
+In case the process terminates with the warning "killed", reduce the batch size to fit into the working memory.
 
 &nbsp; 
 
@@ -130,7 +136,6 @@ for i, file_name in enumerate(image_names):
 # 4. Adapting the Code
 
 In general, it should be easy to adapt the code for other input formats or use cases.
-
 
 - Batch size, train epoch count, logging, world len: `src/configs/constants.py`
 - Input Paths, model checkpoint path: `src/configs/paths.py`
