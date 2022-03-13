@@ -14,7 +14,7 @@ This is an unofficial implementation of TrOCR based on the [Hugging Face transfo
 
 ## Results:
 
-![Predictions](https://drive.google.com/uc?export=view&id=1w5_GxPI_PxrprYXkKIkWEfp4daiwpZDR)
+![Predictions](.resources/example-predictions.png)
 
 After training on a dataset of 2000 samples for 8 epochs, we got an accuracy of 96,5%. Both the training and the validation datasets were not completely clean. Otherwise, even higher accuracies would have been possible.
 
@@ -24,7 +24,7 @@ After training on a dataset of 2000 samples for 8 epochs, we got an accuracy of 
 
 ## Architecture:
 
-![TrOCR](https://pbs.twimg.com/media/FADdTXEVgAAsTWL?format=jpg&name=4096x4096)
+![TrOCR](.resources/architecture.jpg)
 (TrOCR architecture. Taken from the original paper.)
 
 [TrOCR: Transformer-based Optical Character Recognition with Pre-trained Models](https://arxiv.org/abs/2109.10282), Minghao Li, Tengchao Lv, Lei Cui, Yijuan Lu, Dinei Florencio, Cha Zhang, Zhoujun Li, Furu Wei, Preprint 2021.
