@@ -13,4 +13,4 @@ dependencies:
       - pillow==9.0.1
       - transformers==4.16.2
       - sentencepiece==0.1.96
-      - typer==0.4.0
+      - typer==0.4.1
