@@ -54,7 +54,7 @@ class HCRDataset(Dataset):
         self.image_name_list, self.label_list = load_filepaths_and_labels(data_dir)
         self.processor = processor
 
-        self._max_label_len = max([constants.WORD_LEN_PADDING] + [len(label) for label in self.label_list])
+        self._max_label_len = max([constants.word_len_padding] + [len(label) for label in self.label_list])
 
     def __len__(self):
         return len(self.image_name_list)

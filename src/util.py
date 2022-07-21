@@ -29,5 +29,5 @@ def init_model_for_training(model: VisionEncoderDecoderModel, processor: TrOCRPr
 
 
 def debug_print(string: str):
-    if constants.SHOULD_LOG:
+    if constants.should_log:
         print(string)

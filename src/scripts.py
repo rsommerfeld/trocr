@@ -50,7 +50,7 @@ def validate(context: Context, print_wrong: bool = False) -> float:
 
 def train(context: Context, num_epochs=5):
     model = context.model
-    optimizer = AdamW(model.parameters(), lr=constants.LEARNING_RATE)
+    optimizer = AdamW(model.parameters(), lr=constants.learning_rate)
 
     num_training_steps = num_epochs * len(context.train_dataloader)
     lr_scheduler = get_scheduler(
