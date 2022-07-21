@@ -137,11 +137,11 @@ for i, file_name in enumerate(image_names):
 
 In general, it should be easy to adapt the code for other input formats or use cases.
 
-- Batch size, train epoch count, logging, world len: `src/configs/constants.py`
-- Input Paths, model checkpoint path: `src/configs/paths.py`
+- Learning Rate, Batch size, Train Epoch Count, Logging, Word Len: `src/configs/constants.py`
+- Input Paths, Model Checkpoint Path: `src/configs/paths.py`
 - Different label format: `src/dataset.py : load_filepaths_and_labels`
 
-The word len constant is a very important one. To facilitate batch training, all labels need to be padded to the same length.
+The word len constant is very important. To facilitate batch training, all labels need to be padded to the same length.
 Some experiments might be needed here. For us, padding to 8 worked well.
 
 If you want to change specifics of the model, you can supply a TrOCRConfig object to the transformers interface.
@@ -151,6 +151,6 @@ See <https://huggingface.co/docs/transformers/model_doc/trocr#transformers.TrOCR
 
 # 5. Contact
 
-If you have any questions about the implementation, please submit an Github issue.
+If you have any questions about the implementation, please feel free to submit an Github issue.
 
-For questions about the paper or model, please contact the authors.
+For questions about the paper or the architecture, please contact the authors.

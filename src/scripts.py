@@ -2,7 +2,7 @@ import torch
 from torch.utils.data import DataLoader
 from transformers import AdamW, TrOCRProcessor, VisionEncoderDecoderModel, get_scheduler
 
-from .configs.constants import device
+from .configs.constants import LEARNING_RATE, device
 from .context import Context
 from .util import debug_print
 
@@ -50,7 +50,7 @@ def validate(context: Context, print_wrong: bool = False) -> float:
 
 def train(context: Context, num_epochs=5):
     model = context.model
-    optimizer = AdamW(model.parameters(), lr=5e-5)
+    optimizer = AdamW(model.parameters(), lr=LEARNING_RATE)
 
     num_training_steps = num_epochs * len(context.train_dataloader)
     lr_scheduler = get_scheduler(
