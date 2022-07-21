@@ -151,6 +151,8 @@ See <https://huggingface.co/docs/transformers/model_doc/trocr#transformers.TrOCR
 
 # 5. Contact
 
-If you have any questions about the implementation, please feel free to submit an Github issue.
+If the setup fails to work, please let me know in a Github issue! Sometimes sub-dependencies update and become incompatible with other dependencies, so the dependency list has to be updated.
 
-For questions about the paper or the architecture, please contact the authors.
+Feel free to submit issues with questions about the implementation as well.
+
+For questions about the paper or the architecture, please get in touch with the authors.
