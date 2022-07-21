@@ -1,7 +1,7 @@
 from transformers import TrOCRProcessor, VisionEncoderDecoderModel
 
 from .configs import paths
-from .configs.constants import SHOULD_LOG, device
+from .configs import constants
 
 
 def load_processor() -> TrOCRProcessor:
@@ -17,8 +17,8 @@ def load_model(from_disk: bool) -> VisionEncoderDecoderModel:
         model: VisionEncoderDecoderModel = VisionEncoderDecoderModel.from_pretrained(paths.trocr_repo)
         debug_print(f"Loaded pretrained model from huggingface ({paths.trocr_repo})")
 
-    debug_print(f"Using device {device}.")
-    model.to(device)
+    debug_print(f"Using device {constants.device}.")
+    model.to(constants.device)
     return model
 
 
@@ -29,5 +29,5 @@ def init_model_for_training(model: VisionEncoderDecoderModel, processor: TrOCRPr
 
 
 def debug_print(string: str):
-    if SHOULD_LOG:
+    if constants.SHOULD_LOG:
         print(string)

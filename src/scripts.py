@@ -2,7 +2,7 @@ import torch
 from torch.utils.data import DataLoader
 from transformers import AdamW, TrOCRProcessor, VisionEncoderDecoderModel, get_scheduler
 
-from .configs.constants import LEARNING_RATE, device
+from .configs import constants
 from .context import Context
 from .util import debug_print
 
@@ -14,7 +14,7 @@ def predict(
     with torch.no_grad():
         for i, batch in enumerate(dataloader):
             debug_print(f"Predicting batch {i+1}")
-            inputs: torch.Tensor = batch["input"].to(device)
+            inputs: torch.Tensor = batch["input"].to(constants.device)
 
             generated_ids = model.generate(inputs)
             generated_text = processor.batch_decode(generated_ids, skip_special_tokens=True)
@@ -50,20 +50,20 @@ def validate(context: Context, print_wrong: bool = False) -> float:
 
 def train(context: Context, num_epochs=5):
     model = context.model
-    optimizer = AdamW(model.parameters(), lr=LEARNING_RATE)
+    optimizer = AdamW(model.parameters(), lr=constants.LEARNING_RATE)
 
     num_training_steps = num_epochs * len(context.train_dataloader)
     lr_scheduler = get_scheduler(
         "linear", optimizer=optimizer, num_warmup_steps=0, num_training_steps=num_training_steps
     )
 
-    model.to(device)
+    model.to(constants.device)
     model.train()
 
     for epoch in range(num_epochs):
         for j, batch in enumerate(context.train_dataloader):
-            inputs: torch.Tensor = batch["input"].to(device)
-            labels: torch.Tensor = batch["label"].to(device)
+            inputs: torch.Tensor = batch["input"].to(constants.device)
+            labels: torch.Tensor = batch["label"].to(constants.device)
 
             outputs = model(pixel_values=inputs, labels=labels)
             loss = outputs.loss
