@@ -14,15 +14,15 @@ class TrocrPredictor:
         self.processor = load_processor()
         self.model = load_model(use_local_model)
 
-    def predict_for_image_paths(self, image_paths: list[str]) -> list[str]:
+    def predict_for_image_paths(self, image_paths: list[str]) -> list[tuple[str, float]]:
         images = [Image.open(path) for path in image_paths]
         return self.predict_images(images)
 
-    def predict_images(self, images: list[Image.Image]) -> list[str]:
+    def predict_images(self, images: list[Image.Image]) -> list[tuple[str, float]]:
         dataset = MemoryDataset(images, self.processor)
         dataloader = DataLoader(dataset, constants.batch_size)
-        predictions = predict(self.processor, self.model, dataloader)
-        return [p[1] for p in sorted(predictions)]
+        predictions, confidence_scores = predict(self.processor, self.model, dataloader)
+        return zip([p[1] for p in sorted(predictions)], [p[1] for p in sorted(confidence_scores)])
 
 
 def main_train(use_local_model: bool = False):

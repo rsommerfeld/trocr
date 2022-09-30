@@ -18,5 +18,5 @@ def validate(local_model: bool = True):
 @cli.command()
 def predict(image_paths: list[str], local_model: bool = True):
     predictions = TrocrPredictor(local_model).predict_for_image_paths(image_paths)
-    for path, prediction in zip(image_paths, predictions):
-        print(f"Path:\t\t{path}\nPrediction:\t{prediction}\n")
+    for path, (prediction, confidence) in zip(image_paths, predictions):
+        print(f"Path:\t\t{path}\nPrediction:\t{prediction}\nConfidence:\t{confidence}\n")
