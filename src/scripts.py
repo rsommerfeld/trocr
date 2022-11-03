@@ -15,6 +15,7 @@ def predict(
     confidence_scores: list[tuple[int, float]] = []
 
     with torch.no_grad():
+        model.eval()
         for i, batch in enumerate(dataloader):
             debug_print(f"Predicting batch {i+1}")
             inputs: torch.Tensor = batch["input"].to(constants.device)
