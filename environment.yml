@@ -11,6 +11,6 @@ dependencies:
   - pip
   - pip:
       - pillow==9.0.1
-      - transformers==4.16.2
+      - transformers==4.30.0
       - sentencepiece==0.1.96
       - typer==0.4.1
